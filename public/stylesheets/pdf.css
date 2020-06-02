@@ -1,0 +1,19 @@
+html {
+    background-color: transparent;
+}
+@page {
+    margin: 5mm 5mm 5mm 5mm;
+}
+strong {
+    font-weight: bold;
+}
+
+@media print {
+    .no-print  {
+        display: none
+    }
+}
+
+table {
+    -fs-table-paginate: paginate;
+}

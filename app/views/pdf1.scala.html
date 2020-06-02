@@ -1,0 +1,64 @@
+@import io.nayuki.qrcodegen._
+@()
+@qr=@{QrCode.encodeText("http://www.google.com", QrCode.Ecc.MEDIUM).toSvgString(4).replace("""<?xml version="1.0" encoding="UTF-8"?>""","").
+    replace("""<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">""","")}
+<html lang="en">
+    <head>
+        <link href="/assets/stylesheets/pdf.css" rel="stylesheet" type="text/css"/>
+        <style>
+                .inline {  display: inline-block;}
+                .imglink {display: inline-block;text-decoration: none}
+                body{
+                    font-family: 'Roboto', sans-serif;
+                }
+                table {
+                 background: #AAA;
+                }
+                svg{
+                 width:25%
+                }
+        </style>
+    </head>
+    <body>
+        <br/>
+
+        This is a view. Hello <b>there!!!!!</b> @{ new java.util.Date } <br/><br/>
+
+        <div class="no-print">Goto <a href="@routes.PDFController.pdf">PDF</a> to see this page in PDF form<br/><br/></div>
+
+        Scan this SVG QR code with your phone to go to google<br/>
+        @Html(qr)
+
+        <div class="inline">
+            <img src="https://i.pinimg.com/736x/8f/49/4c/8f494c4a9fe70adb838bf65203b578fe.jpg" width="150px"/>
+        </div>
+        <div class="inline">
+            A link
+            <a href="http://google.com" class="imglink"><img src="https://www.101dogbreeds.com/wp-content/uploads/2018/08/Flat-Coat-Retriever-Pictures.jpg" width="150px"></img></a>
+        </div>
+
+        <svg xmlns="http://www.w3.org/2000/svg" height="100" width="100" class="inline">
+            <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+        </svg>
+
+        <img title="Mandala SVG" alt="Mandala SVG" src="/assets/Mandala.svg" width="25%"/>
+
+        <br/>
+        <table width="30%">
+            <thead>
+                <th>This</th>
+                <th>That</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="https://thehappypuppysite.com/wp-content/uploads/2017/12/puppy8.jpg" width="150px"/></td>
+                    <td>Two</td>
+                </tr>
+                <tr>
+                    <td>Three</td>
+                    <td><img src="https://www.thelabradorsite.com/wp-content/uploads/2017/12/golden-retriever.jpg" width="150px"/></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body></html>
